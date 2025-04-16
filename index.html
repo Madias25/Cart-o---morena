@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Para minha morena</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #a084ca, #cdb4db);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      animation: pulse 2s infinite;
+    }
+    p {
+      font-size: 1.2em;
+    }
+    .heart {
+      width: 100px;
+      height: 90px;
+      position: relative;
+      animation: beat 1s infinite;
+      margin: 20px auto;
+    }
+    .heart::before, .heart::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 100px;
+      height: 150px;
+      border-radius: 50px 50px 0 0;
+      background: red;
+    }
+    .heart::before {
+      left: 50px;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+    .heart::after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    @keyframes pulse {
+      0%, 100% { color: #fff; }
+      50% { color: #ffdeea; }
+    }
+    .flowers {
+      position: absolute;
+      bottom: 10px;
+      font-size: 1em;
+    }
+    audio {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sinto sua falta, minha morena</h1>
+  <div class="heart"></div>
+  <p>Você é o amor da minha vida. Não vejo a hora de te abraçar de novo.</p>
+  <div class="flowers">Com girassóis no coração e um mundo de saudade…</div>
+  <audio controls autoplay loop>
+    <source src="https://archive.org/download/tiaguinho-ainda-bem/Tiaguinho%20-%20Ainda%20Bem.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio HTML5.
+  </audio>
+</body>
+</html>
