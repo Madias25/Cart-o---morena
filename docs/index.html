@@ -1,7 +1,8 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Para minha morena</title>
   <style>
     body {
@@ -16,152 +17,71 @@
       height: 100vh;
       overflow: hidden;
       text-align: center;
-      position: relative;
     }
-
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-      animation: pulse 2s infinite;
-    }
-
-    p {
-      font-size: 1.2em;
-      max-width: 80%;
-    }
-
     .heart {
       width: 100px;
       height: 90px;
+      background: red;
       position: relative;
+      transform: rotate(-45deg);
       animation: beat 1s infinite;
       margin: 20px auto;
     }
-
-    .heart::before, .heart::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 100px;
-      height: 150px;
-      border-radius: 50px 50px 0 0;
-      background: red;
-    }
-
-    .heart::before {
-      left: 50px;
-      transform: rotate(-45deg);
-      transform-origin: 0 100%;
-    }
-
+    .heart::before,
     .heart::after {
-      left: 0;
-      transform: rotate(45deg);
-      transform-origin: 100% 100%;
-    }
-
-    @keyframes beat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { color: #fff; }
-      50% { color: #ffdeea; }
-    }
-
-    @keyframes fall {
-      0% { transform: translateY(-10%); opacity: 0; }
-      100% { transform: translateY(110vh); opacity: 1; }
-    }
-
-    .flower {
+      content: "";
+      width: 100px;
+      height: 90px;
+      background: red;
+      border-radius: 50%;
       position: absolute;
+    }
+    .heart::before {
       top: -50px;
-      color: #fff9f9;
-      font-size: 20px;
-      animation: fall linear infinite;
-      opacity: 0.8;
+      left: 0;
     }
-
-    .typewriter {
-      overflow: hidden;
-      border-right: .15em solid #fff;
-      white-space: nowrap;
-      margin: 0 auto;
-      letter-spacing: .10em;
-      animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
-      font-size: 1.2em;
-      max-width: 80%;
+    .heart::after {
+      left: 50px;
+      top: 0;
     }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
+    @keyframes beat {
+      0%, 100% {
+        transform: scale(1) rotate(-45deg);
+      }
+      50% {
+        transform: scale(1.1) rotate(-45deg);
+      }
     }
-
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: #fff; }
+    .message {
+      font-size: 1.8em;
+      font-weight: 500;
+      margin: 20px;
     }
-
-    .btn {
+    .sunflowers {
+      width: 150px;
       margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #ffffff44;
+    }
+    .button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #fcd34d;
       border: none;
-      border-radius: 10px;
-      color: #fff;
+      color: #000;
       font-size: 1em;
+      border-radius: 30px;
       cursor: pointer;
-      transition: background 0.3s;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
     }
-
-    .btn:hover {
-      background-color: #ffffff66;
-    }
-
-    audio {
-      margin-top: 20px;
+    .button:hover {
+      background-color: #fbbf24;
     }
   </style>
 </head>
 <body>
-  <h1>Sinto sua falta, minha morena</h1>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Sunflower_from_Silesia2.jpg/800px-Sunflower_from_Silesia2.jpg" alt="Girassol" class="sunflowers">
   <div class="heart"></div>
-  <div class="typewriter">Paloma, cada batida do meu coração carrega um pedacinho de saudade sua...</div>
-  <p>Você é o sorriso que meu dia precisa e o abraço que minha alma espera.</p>
-  
-  <button class="btn" onclick="mostrarMensagem()">Te adoro, Paloma!</button>
-  <div id="mensagemExtra" style="margin-top: 15px; display: none;">
-    Quero viver muitas coisas ao seu lado... inclusive nossos sonhos mais bobos.
-  </div>
-
-  <audio controls autoplay loop>
-    <source src="https://archive.org/download/tiaguinho-ainda-bem/Tiaguinho%20-%20Ainda%20Bem.mp3" type="audio/mpeg">
-    Seu navegador não suporta áudio HTML5.
-  </audio>
-
-  <!-- Flores caindo -->
-  <script>
-    function criarFlor() {
-      const flor = document.createElement('div');
-      flor.classList.add('flower');
-      flor.style.left = Math.random() * 100 + "vw";
-      flor.style.animationDuration = (Math.random() * 5 + 5) + "s";
-      flor.innerHTML = "❀";
-      document.body.appendChild(flor);
-
-      setTimeout(() => {
-        flor.remove();
-      }, 10000);
-    }
-
-    setInterval(criarFlor, 400);
-
-    function mostrarMensagem() {
-      document.getElementById("mensagemExtra").style.display = "block";
-    }
-  </script>
+  <div class="message">Sinto sua falta, minha morena</div>
+  <a class="button" href="https://www.youtube.com/watch?v=2GJhh2u5QyI" target="_blank">Ouvir "Ainda Bem"</a>
 </body>
 </html>
